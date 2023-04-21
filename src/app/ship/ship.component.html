@@ -1,0 +1,65 @@
+<nav class="nav">
+  <button class="addShip" (click)="toggleInputFields()">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="30"
+      height="30"
+      fill="currentColor"
+      class="bi bi-plus-circle"
+      viewBox="0 0 16 18"
+    >
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"
+      />
+    </svg>
+    <span class="label">Új hajó hozzáadása</span>
+  </button>
+</nav>
+<table class="table table-striped custom-table" id="ships">
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns" scope="col">
+        {{ col }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr scope="row" class="inputField" *ngIf="showInputFields">
+      <td *ngFor="let col of index">
+        <span
+          ><input
+            class="input"
+            [(ngModel)]="newShip[col]"
+            name="{{ col }}"
+            placeholder="{{ col }}"
+            type="text"
+            required
+        /></span>
+      </td>
+    </tr>
+
+    <tr scope="row" class="addButton" *ngIf="showInputFields">
+      <td>
+        <span>
+          <button class="btn btn-light" (click)="onSubmit()" type="submit">
+            Hozzáadás
+          </button>
+        </span>
+      </td>
+      <td>
+        <button class="btn btn-light close" (click)="toggleInputFields()">
+          Bezárás
+        </button>
+      </td>
+    </tr>
+
+    <tr *ngFor="let ship of ships" scope="row">
+      <td *ngFor="let col of index">
+        <span [ngClass]="{ more: col === 'name' || col === 'price' }">{{
+          ship[col]
+        }}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<footer>Sangare F. Felisha - SZOFT II N - 2023.04.19</footer>

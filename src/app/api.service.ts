@@ -1,3 +1,13 @@
+/*
+* File: api.component.ts
+* Author: Sangare F. Felisha
+* Copyright: 2023, Sangare F. Felisha
+* Group: Szoft II N
+* Date: 2023-04-19
+* Github: https://github.com/fe-ktch/
+* Licenc: GNU GPL
+*/
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
